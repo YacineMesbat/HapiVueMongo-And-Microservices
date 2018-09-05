@@ -39,8 +39,8 @@ sudo docker-compose up --build
 
 ## Authors
 
-* **Yacine Mesbat** - *Fullstack Work* - [GITHUB]((https://github.com/Mesbat)
-* **Ramy Ferjani** - *Fullstack Work* - [GITHUB]((https://github.com/ramyferjani)
+* **Yacine Mesbat** - *Fullstack Work* - [GITHUB](https://github.com/Mesbat)
+* **Ramy Ferjani** - *Fullstack Work* - [GITHUB](https://github.com/ramyferjani)
 
 ## License
 
