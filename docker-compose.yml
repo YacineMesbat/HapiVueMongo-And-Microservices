@@ -1,0 +1,28 @@
+version: '3'
+services:
+  mysqldb:
+    image: mysql:latest
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_DATABASE: ticweb
+      MYSQL_USER: f460c882a18
+      MYSQL_PASSWORD: 89fb9a42628f26
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - mysqldb
+    environment:
+      PMA_HOST: mysqldb
+  mongodb:
+    image: mongo:latest
+    restart: always
+    command: mongod --smallfiles
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: d8101c974cf
+      MONGO_INITDB_ROOT_PASSWORD: e20e40ce1851b5835
+    volumes:
+      - ./db/mongodb:/data/db
