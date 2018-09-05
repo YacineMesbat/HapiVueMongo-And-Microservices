@@ -1,6 +1,5 @@
 # TIC-TWEB
 
-![TIC-WEB](https://pbs.twimg.com/profile_images/575312006581874688/UHXzdngc_400x400.jpeg)
 Boston police need a new tool to explore and record crimes. Your job is to create it!
 
 ## Getting Started
