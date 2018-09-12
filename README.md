@@ -44,6 +44,6 @@ sudo docker-compose up --build
 * **Yacine Mesbat** - *Fullstack Work* - [GITHUB](https://github.com/Mesbat)
 * **Ramy Ferjani** - *Fullstack Work* - [GITHUB](https://github.com/ramyferjani)
 
-## License :scroll: ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/Mesbat)
+## License :scroll: ![[GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Mesbat/HapiVueMongo-And-Microservices/blob/master/LICENSE.md) [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/Mesbat)
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
