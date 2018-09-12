@@ -31,7 +31,7 @@ Deploy containers, typing in the project's root path
 sudo docker-compose up --build
 ```
 
-## Built With
+[![ForTheBadge built-with-science](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://GitHub.com/Naereen/)
 
 * [Lumen](https://github.com/laravel/lumen) - Lighthening fast php framework for microservices
 * [HapiJS](https://github.com/hapijs/hapi) - Web and services application framework
@@ -39,11 +39,11 @@ sudo docker-compose up --build
 * [Mysql](https://github.com/mysql) - Mysql Database
 * [MongoDB](https://github.com/mongodb/mongo) - MongoDB Database
 
-[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/Mesbat/) Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Mesbat/HapiVueMongo-And-Microservices/issues)
+[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/Mesbat/)  [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Mesbat/HapiVueMongo-And-Microservices/issues)
 
 * **Yacine Mesbat** - *Fullstack Work* - [GITHUB](https://github.com/Mesbat)
 * **Ramy Ferjani** - *Fullstack Work* - [GITHUB](https://github.com/ramyferjani)
 
-## License :scroll: ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+## License :scroll: ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/kennethreitz)
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
