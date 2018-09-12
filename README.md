@@ -39,11 +39,13 @@ sudo docker-compose up --build
 * [Mysql](https://github.com/mysql) - Mysql Database
 * [MongoDB](https://github.com/mongodb/mongo) - MongoDB Database
 
-## Authors ## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Mesbat/HapiVueMongo-And-Microservices/issues)
+## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Mesbat/HapiVueMongo-And-Microservices/issues)
+
+## [![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/Mesbat/)
 
 * **Yacine Mesbat** - *Fullstack Work* - [GITHUB](https://github.com/Mesbat)
 * **Ramy Ferjani** - *Fullstack Work* - [GITHUB](https://github.com/ramyferjani)
 
-## License ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+## License :scroll: ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
