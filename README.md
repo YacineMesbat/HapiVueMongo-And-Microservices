@@ -2,6 +2,8 @@
 
 Boston police need a new tool to explore and record crimes. Your job is to create it!
 
+DISCLAIMER: Any data found in this project is fictional, the project itself answers to a fictional request and is intended for educational purposes only.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
