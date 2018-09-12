@@ -22,7 +22,8 @@ services:
     restart: always
     command: mongod --smallfiles
     environment:
-      MONGO_INITDB_ROOT_USERNAME: d8101c974cf
-      MONGO_INITDB_ROOT_PASSWORD: e20e40ce1851b5835
+      MONGO_INITDB_ROOT_USERNAME: rootadmin
+      MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
       - ./db/mongodb:/data/db
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
