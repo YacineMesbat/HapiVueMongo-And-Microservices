@@ -31,7 +31,7 @@ Deploy containers, typing in the project's root path
 sudo docker-compose up --build
 ```
 
-### Built with
+### Built with [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Mesbat/HapiVueMongo-And-Microservices/issues)
 
 * [Lumen](https://github.com/laravel/lumen) - Lighthening fast php framework for microservices
 * [HapiJS](https://github.com/hapijs/hapi) - Web and services application framework
@@ -39,7 +39,7 @@ sudo docker-compose up --build
 * [Mysql](https://github.com/mysql) - Mysql Database
 * [MongoDB](https://github.com/mongodb/mongo) - MongoDB Database
 
-[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/Mesbat/)  [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Mesbat/HapiVueMongo-And-Microservices/issues)
+[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/Mesbat/)  
 
 * **Yacine Mesbat** - *Fullstack Work* - [GITHUB](https://github.com/Mesbat)
 * **Ramy Ferjani** - *Fullstack Work* - [GITHUB](https://github.com/ramyferjani)
