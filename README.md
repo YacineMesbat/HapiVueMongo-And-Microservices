@@ -31,7 +31,7 @@ Deploy containers, typing in the project's root path
 sudo docker-compose up --build
 ```
 
-[![ForTheBadge built-with-science](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://GitHub.com/Naereen/)
+### Built with
 
 * [Lumen](https://github.com/laravel/lumen) - Lighthening fast php framework for microservices
 * [HapiJS](https://github.com/hapijs/hapi) - Web and services application framework
@@ -44,6 +44,6 @@ sudo docker-compose up --build
 * **Yacine Mesbat** - *Fullstack Work* - [GITHUB](https://github.com/Mesbat)
 * **Ramy Ferjani** - *Fullstack Work* - [GITHUB](https://github.com/ramyferjani)
 
-## License :scroll: ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/kennethreitz)
+## License :scroll: ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/Mesbat)
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
