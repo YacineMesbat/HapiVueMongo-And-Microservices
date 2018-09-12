@@ -1,4 +1,4 @@
-# Crimes Records Tool [![HitCount](http://hits.dwyl.io/Mesbat/HapiVueMongo-And-Microservices.svg)](http://hits.dwyl.io/Mesbat/HapiVueMongo-And-Microservices)
+# Crimes Records Tool [![HitCount](http://hits.dwyl.io/Mesbat/HapiVueMongo-And-Microservices.svg)](http://hits.dwyl.io/Mesbat/HapiVueMongo-And-Microservices) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Mesbat/HapiVueMongo-And-Microservices/graphs/commit-activity)
 
 Boston police need a new tool to explore and record crimes. Your job is to create it!
 
