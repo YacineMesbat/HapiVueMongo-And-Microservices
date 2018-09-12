@@ -39,9 +39,7 @@ sudo docker-compose up --build
 * [Mysql](https://github.com/mysql) - Mysql Database
 * [MongoDB](https://github.com/mongodb/mongo) - MongoDB Database
 
-## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Mesbat/HapiVueMongo-And-Microservices/issues)
-
-## [![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/Mesbat/)
+[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/Mesbat/) Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Mesbat/HapiVueMongo-And-Microservices/issues)
 
 * **Yacine Mesbat** - *Fullstack Work* - [GITHUB](https://github.com/Mesbat)
 * **Ramy Ferjani** - *Fullstack Work* - [GITHUB](https://github.com/ramyferjani)
