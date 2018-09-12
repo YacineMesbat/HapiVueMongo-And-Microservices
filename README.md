@@ -1,8 +1,8 @@
-# Crimes Records Tool
+# Crimes Records Tool [![HitCount](http://hits.dwyl.io/Mesbat/HapiVueMongo-And-Microservices.svg)](http://hits.dwyl.io/Mesbat/HapiVueMongo-And-Microservices)
 
 Boston police need a new tool to explore and record crimes. Your job is to create it!
 
-DISCLAIMER: Any data found in this project is fictional, the project itself answers to a fictional request and is intended for educational purposes only.
+**DISCLAIMER: Any data found in this project is fictional, the project itself answers to a fictional request and is intended for educational purposes only.**
 
 ## Getting Started
 
@@ -39,7 +39,7 @@ sudo docker-compose up --build
 * [Mysql](https://github.com/mysql) - Mysql Database
 * [MongoDB](https://github.com/mongodb/mongo) - MongoDB Database
 
-## Authors
+## Authors ## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
 * **Yacine Mesbat** - *Fullstack Work* - [GITHUB](https://github.com/Mesbat)
 * **Ramy Ferjani** - *Fullstack Work* - [GITHUB](https://github.com/ramyferjani)
