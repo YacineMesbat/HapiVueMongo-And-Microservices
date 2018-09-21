@@ -11,12 +11,6 @@ services:
       - ./db/mysql:/var/lib/mysql
     restart: always
     command: --default-authentication-plugin=mysql_native_password
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    links:
-      - mysqldb
-    environment:
-      PMA_HOST: mysqldb
   mongodb:
     image: mongo:latest
     restart: always
@@ -27,3 +21,15 @@ services:
     volumes:
       - ./db/mongodb:/data/db
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+  account.api:
+    build:
+      context: .
+      dockerfile: ./microservices/accountManager/Dockerfile
+    ports:
+      - 8081:80
+    restart: always
+    tty: true
+    volumes:
+      - ./microservices/accountManager/www:/var/www/html
+    links:
+      - mysqldb:mysql
