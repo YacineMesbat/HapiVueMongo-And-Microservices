@@ -25,9 +25,14 @@ services:
     build:
       context: .
       dockerfile: ./microservices/accountManager/Dockerfile
+    command: >
+      bash -c "cd /var/www/html
+      && composer install
+      && php artisan migrate:fresh
+      && php artisan db:seed
+      && apachectl -D FOREGROUND"
     ports:
       - 8081:80
-    restart: always
     tty: true
     volumes:
       - ./microservices/accountManager/www:/var/www/html

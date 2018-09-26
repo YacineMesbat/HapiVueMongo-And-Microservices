@@ -11,13 +11,11 @@
 |
 */
 
-use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
-
-
 $router->get('/infos', function () use ($router) {
-    return response()->json(['env' => app()->environment(), 'version' => env('APP_VERSION'), 'framework' => $router->app->version()]);
+    return response()->json(['environment' => app()->environment(), 'current_version' => env('APP_VERSION'), 'framework' => $router->app->version()]);
 });
 
-$router->get('/', function () use ($router) {
-    throw new UnauthorizedHttpException("");
-});
+$router->get('/users[/{id}]', 'UserController@show');
+$router->post('/users', 'UserController@create');
+$router->patch('/users/{id}', 'UserController@update');
+$router->delete('/users/{id}', 'UserController@delete');

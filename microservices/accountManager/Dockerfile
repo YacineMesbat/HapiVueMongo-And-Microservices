@@ -16,5 +16,5 @@ RUN php composer-setup.php
 RUN php -r "unlink('composer-setup.php');"
 RUN mv composer.phar /usr/local/bin/composer
 
+# Expose
 EXPOSE 80
-CMD apachectl -D FOREGROUND
