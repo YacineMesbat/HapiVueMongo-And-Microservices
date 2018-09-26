@@ -1,0 +1,22 @@
+**INSTALLATION: You must use your own .env file to make this project work.**
+
+```Bash
+APP_ENV=
+APP_DEBUG=
+APP_KEY=
+APP_TIMEZONE=UTC
+APP_VERSION=
+
+LOG_CHANNEL=stack
+LOG_SLACK_WEBHOOK_URL=
+
+DB_CONNECTION=
+DB_HOST=
+DB_PORT=
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+
+CACHE_DRIVER=file
+QUEUE_DRIVER=sync
+```
