@@ -25,6 +25,8 @@ services:
     build:
       context: .
       dockerfile: ./microservices/accountManager/Dockerfile
+    depends_on:
+      - mysqldb
     command: >
       bash -c "cd /var/www/html
       && composer install
@@ -34,6 +36,7 @@ services:
     ports:
       - 8081:80
     tty: true
+    restart: on-failure
     volumes:
       - ./microservices/accountManager/www:/var/www/html
     links:
