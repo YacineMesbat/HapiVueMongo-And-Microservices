@@ -41,3 +41,24 @@ services:
       - ./microservices/accountManager/www:/var/www/html
     links:
       - mysqldb:mysql
+  data.Exporter:
+    build:
+      context: .
+      dockerfile: ./microservices/dataExporter/Dockerfile
+    depends_on:
+      - mysqldb
+    command: >
+      bash -c "cd /var/www/html
+      && composer install
+      && php artisan migrate:fresh
+      && php artisan db:seed
+      && apachectl -D FOREGROUND"
+    ports:
+      - 8082:80
+    tty: true
+    restart: on-failure
+    volumes:
+      - ./microservices/dataExporter/www:/var/www/html
+    links:
+      - mysqldb:mysql
+      - account.api
