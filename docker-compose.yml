@@ -30,6 +30,7 @@ services:
     command: >
       bash -c "cd /var/www/html
       && composer install
+      && composer update
       && php artisan migrate:fresh
       && php artisan db:seed
       && apachectl -D FOREGROUND"
@@ -41,17 +42,16 @@ services:
       - ./microservices/accountManager/www:/var/www/html
     links:
       - mysqldb:mysql
-  data.Exporter:
+  data.exporter:
     build:
       context: .
       dockerfile: ./microservices/dataExporter/Dockerfile
     depends_on:
-      - mysqldb
+      - mongodb
     command: >
       bash -c "cd /var/www/html
       && composer install
-      && php artisan migrate:fresh
-      && php artisan db:seed
+      && composer update
       && apachectl -D FOREGROUND"
     ports:
       - 8082:80
@@ -60,5 +60,5 @@ services:
     volumes:
       - ./microservices/dataExporter/www:/var/www/html
     links:
-      - mysqldb:mysql
+      - mongodb:mongo
       - account.api
