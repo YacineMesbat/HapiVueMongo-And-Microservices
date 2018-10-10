@@ -80,3 +80,19 @@ services:
     links:
       - account.api
       - crime.api
+  web.client:
+    image: vuejs/ci:latest
+    command: >
+      bash -c "cd /usr/src/app
+      && npm install
+      && npm run dev"
+    ports:
+      - 8085:80
+    expose: 
+      - 80
+    tty: true
+    restart: on-failure
+    volumes:
+      - ./webClient:/usr/src/app
+    links:
+      - web.api
