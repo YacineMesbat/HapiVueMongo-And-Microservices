@@ -12,7 +12,7 @@ class UserController extends Controller
         if (isset($id))
             return response()->json(['User' => User::findOrFail($id)]);
         else
-            return response()->json(['Users' => User::all()]);
+            return response()->json(['Users' => User::paginate(25)]);
     }
 
     public function delete($id)
@@ -30,13 +30,13 @@ class UserController extends Controller
             'email'         => 'required|email|unique:users'
         ]);
 
-        return response(User::create([
+        return response()->json(['User' => User::create([
             'first_name'    => $request->first_name,
             'last_name'     => $request->last_name,
-            'password'      => app('hash')->make($request->password),
+            'password'      => hash('sha512', $request->password . '4956b4af9f6dcaef1eb4b1fcb8fba69e7a7acdc491ea5b1f2864e'),
             'role'          => $request->role,
             'email'         => $request->email
-        ]), 201);
+        ])], 201);
     }
 
     public function update(Request $request, $id)
@@ -50,7 +50,8 @@ class UserController extends Controller
             'confirmed'     => 'sometimes|boolean'
         ]);
 
-        $request->password = app('hash')->make($request->password);
+        if (isset($request->password))
+            $request->password = hash('sha512', $request->password . '4956b4af9f6dcaef1eb4b1fcb8fba69e7a7acdc491ea5b1f2864e');
 
         $user =  User::findOrFail($id);
         $user->update($request->only([
@@ -62,6 +63,6 @@ class UserController extends Controller
             'confirmed'
         ]));
 
-        return ($user);
+        return response()->json(['User' => $user]);
     }
 }

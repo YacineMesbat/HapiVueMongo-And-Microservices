@@ -19,3 +19,5 @@ $router->get('/users[/{id}]', 'UserController@show');
 $router->post('/users', 'UserController@create');
 $router->patch('/users/{id}', 'UserController@update');
 $router->delete('/users/{id}', 'UserController@delete');
+
+$router->post('/login', 'LoginController@login');
