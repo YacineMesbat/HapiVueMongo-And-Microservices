@@ -9,6 +9,13 @@ function CrimeValidate(){};
 CrimeValidate.prototype = (function(){
 
 	return {
+		find: {
+			query: (() => {
+				return {
+					page: Joi.number().min(1).optional()
+				}
+			})
+		}
   //   create: {
   //     payload: (function payload() {
   //       var crimeSchema = new models.Crime().schema;

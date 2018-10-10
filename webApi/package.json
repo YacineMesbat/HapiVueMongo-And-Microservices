@@ -16,6 +16,7 @@
     "good-squeeze": "^5.1.0",
     "hapi": "^17.5.4",
     "joi": "^13.6.0",
+    "request": "^2.88.0",
     "underscore": "^1.9.1"
   }
 }

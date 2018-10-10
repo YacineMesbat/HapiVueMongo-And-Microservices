@@ -1,5 +1,6 @@
 "use strict";
 
+var Request = require('request');
 // var ReplyHelper = require('./reply-helper');
 
 function CrimeController(){};
@@ -8,117 +9,66 @@ CrimeController.prototype = (function(){
 	return {
     find: (request, h) => {
 
-			// var helper = new ReplyHelper(request, h);
-			return request.query;
+			return new Promise((resolve, reject) => {
+				let page = Number(request.query.page) || 1;
+
+				Request('http://search.engine/crimes?page=' + page, function (error, response, body) {
+					if (error) {
+						reject(h.response(error).code(500));
+					} else {
+						resolve(h.response(body).code(response.statusCode))
+					}
+				});	
+			});
     },
     findById: (request, h) => {
 
-			// var helper = new ReplyHelper(request, h);
-			return request.params;
+			return new Promise((resolve, reject) => {
+				Request('http://search.engine/crimes/' + request.params.id, function (error, response, body) {
+					if (error) {
+						reject(h.response(error).code(500));
+					} else {
+						resolve(h.response(body).code(response.statusCode))
+					}
+				});
+			});
     },
     create: (request, h) => {
 
-			// var helper = new ReplyHelper(request, h);
-			return request.payload;
+			return new Promise((resolve, reject) => {
+				Request.post({url:'http://search.engine/crimes', form: request.payload}, function(error, response, body){
+					if (error) {
+						reject(h.response(error).code(500));
+					} else {
+						resolve(h.response(body).code(response.statusCode))
+					}
+				})
+			});
     },
     update: (request, h) => {
 
-			// var helper = new ReplyHelper(request, h);
-			return request.payload;
+			return new Promise((resolve, reject) => {
+			Request.patch({url:'http://search.engine/crimes/' + request.params.id, form: request.payload}, function(error, response, body){
+				if (error) {
+					reject(h.response(error).code(500));
+				} else {
+					resolve(h.response(body).code(response.statusCode))
+				}
+			})
+		});
     },
     delete: (request, h) => {
 
-			// var helper = new ReplyHelper(request, h);
-			return request.params;
+			return new Promise((resolve, reject) => {
+				Request.del({url:'http://search.engine/crimes/' + request.params.id, form: request.payload}, function(error, response, body){
+					if (error) {
+						reject(h.response(error).code(500));
+					} else {
+						resolve(h.response(body).code(response.statusCode))
+					}
+				})
+			});
 		},
-		// findByID: function findByID(request, reply) {
-
-		// 	var helper = new ReplyHelper(request, reply);
-		// 	var params = request.plugins.createControllerParams(request.params);
-
-		// 	taskDAO.findByID(params, function (err, data) {
-		// 		helper.replyFindOne(err, data);
-		// 	});
-		// },
-		// find: function find(request, reply) {
-
-		// 	var helper = new ReplyHelper(request, reply);
-		// 	var params = request.plugins.createControllerParams(request.query);
-
-		// 	taskDAO.find(params, function (err, data) {
-		// 		helper.replyFind(err, data);
-		// 	});
-		// },
-		// insert: function insert(request, reply) {
-
-		// 	var helper = new ReplyHelper(request, reply);
-		// 	var params = request.plugins.createControllerParams(request.payload);
-			
-		// 	var insert = Q.denodeify(taskDAO.insert);
-		// 	var findByID = Q.denodeify(taskDAO.findByID);
-
-		// 	insert(params).then(function insert(data) {
-
-		// 		var result = data;
-		// 		if (result.exception) {
-		// 			reply(Hapi.error.badRequest(result.exception));
-		// 			done();
-		// 		} 
-		// 		params.taskId = result.insertId;
-		// 		return findByID(params);
-
-		// 	}).then(function (data) {
-
-		// 		var location = helper.url + request.path + '/' + params.taskId;
-
-		// 		reply(data[0])
-		// 			.type('application/json')
-		// 			.code(201)
-		// 			.header('Location', location);
-
-		// 	}).catch(function (err) {
-		// 		reply(Hapi.error.badImplementation(err));
-		// 	});
-		// },
-		// update: function update(request, reply) {
-
-		// 	var helper = new ReplyHelper(request, reply);
-		// 	var payload = request.plugins.createControllerParams(request.payload);
-		// 	var params = request.plugins.createControllerParams(request.params);
-
-		// 	_.extend(params, payload);
-			
-		// 	var update = Q.denodeify(taskDAO.update);
-		// 	var findByID = Q.denodeify(taskDAO.findByID);
-
-		// 	update(params).then(function update(data) {
-
-		// 		var result = data;
-		// 		if (result.exception) {
-		// 			reply(Hapi.error.badRequest(result.exception));
-		// 			done();
-		// 		}
-		// 		return findByID(params);
-
-		// 	}).then(function (data) {
-
-		// 		reply(data[0])
-		// 			.type('application/json');
-
-		// 	}).catch(function (err) {
-		// 		reply(Hapi.error.badImplementation(err));
-		// 	});
-
-		// },
-		// delete: function (request, reply){
-
-		// 	var helper = new ReplyHelper(request, reply);
-		// 	var params = request.plugins.createControllerParams(request.params);
-
-		// 	taskDAO.delete(params, function (err, data) {
-		// 		helper.replyDelete(err, data);
-		// 	});
-		// }
 	}
 })();
 

@@ -7,7 +7,7 @@ module.exports = [
 		path: '/api/crimes',
 		config : {
 			handler: crimeController.find,
-			// validate: crimeValidate.test
+			// validate: crimeValidate.find
 		}
   },
   {
@@ -27,7 +27,7 @@ module.exports = [
 		}
   },
   {
-    method: 'PUT',
+    method: ['PUT', 'PATCH'],
 		path: '/api/crimes/{id}',
 		config : {
 			handler: crimeController.update,
