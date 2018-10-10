@@ -12,4 +12,5 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 class Crime extends Eloquent
 {
     protected $collection = 'crimes';
+    protected $primaryKey = '_id';
 }
