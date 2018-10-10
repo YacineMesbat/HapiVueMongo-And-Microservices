@@ -1,6 +1,5 @@
-// const CompanyController = require('../controllers/company.controller');
 var crimeController = require('../controllers/crimes');
-var crimeValidate = require('../validate/crimes');
+// var crimeValidate = require('../validate/crimes');
 module.exports = [
   {
     method: 'GET',
@@ -15,7 +14,6 @@ module.exports = [
 		path: '/api/crimes/{id}',
 		config : {
 			handler: crimeController.findById,
-			// validate: crimeValidate.test
 		}
   },
   {
@@ -23,7 +21,6 @@ module.exports = [
 		path: '/api/crimes',
 		config : {
 			handler: crimeController.create,
-			// validate: crimeValidate.test
 		}
   },
   {
@@ -31,7 +28,6 @@ module.exports = [
 		path: '/api/crimes/{id}',
 		config : {
 			handler: crimeController.update,
-			// validate: crimeValidate.test
 		}
   },
   {
@@ -39,32 +35,6 @@ module.exports = [
 		path: '/api/crimes/{id}',
 		config : {
 			handler: crimeController.delete,
-			// validate: crimeValidate.test
 		}
   },
-  // {
-  //   path: '/api/companies',
-  //   method: 'POST',
-  //   handler: CompanyController.create
-  // },
-  // {
-  //   path: '/api/companies',
-  //   method: 'GET',
-  //   handler: CompanyController.find
-  // },
-  // {
-  //   path: '/api/companies/{id}',
-  //   method: 'GET',
-  //   handler: CompanyController.findOne
-  // },
-  // {
-  //   path: '/api/companies/{id}',
-  //   method: 'DELETE',
-  //   handler: CompanyController.delete
-  // },
-  // {
-  //   path: '/api/companies/{id}',
-  //   method: 'PUT',
-  //   handler: CompanyController.update
-  // }
 ];

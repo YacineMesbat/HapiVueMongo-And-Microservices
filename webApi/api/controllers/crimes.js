@@ -1,7 +1,6 @@
 "use strict";
 
 var Request = require('request');
-// var ReplyHelper = require('./reply-helper');
 
 function CrimeController(){};
 CrimeController.prototype = (function(){
