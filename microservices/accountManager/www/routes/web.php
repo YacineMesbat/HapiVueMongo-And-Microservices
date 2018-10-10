@@ -15,9 +15,11 @@ $router->get('/infos', function () use ($router) {
     return response()->json(['environment' => app()->environment(), 'current_version' => env('APP_VERSION'), 'framework' => $router->app->version()]);
 });
 
-$router->get('/users[/{id}]', 'UserController@show');
-$router->post('/users', 'UserController@create');
-$router->patch('/users/{id}', 'UserController@update');
-$router->delete('/users/{id}', 'UserController@delete');
+$router->group(['middleware' => ['jwt.auth']], function () use ($router) {
+    $router->get('/users[/{id}]','UserController@show');
+    $router->post('/users', 'UserController@create');
+    $router->patch('/users/{id}', 'UserController@update');
+    $router->delete('/users/{id}', 'UserController@delete');
+});
 
 $router->post('/login', 'LoginController@login');

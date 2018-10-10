@@ -33,6 +33,9 @@ services:
       && composer update
       && php artisan migrate:fresh
       && php artisan db:seed
+      && composer dump-autoload
+      && php artisan clear-compiled
+      && php artisan optimize
       && apachectl -D FOREGROUND"
     ports:
       - 8081:80
@@ -52,6 +55,9 @@ services:
       bash -c "cd /var/www/html
       && composer install
       && composer update
+      && composer dump-autoload
+      && php artisan clear-compiled
+      && php artisan optimize
       && apachectl -D FOREGROUND"
     ports:
       - 8083:80
