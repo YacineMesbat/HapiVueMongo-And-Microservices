@@ -17,10 +17,6 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/last', function () use ($router) {
-    return Crime::orderBy('fromdate', 'desc')->take(1)->get();
-});
-
 $router->get('/crimes[/{id}]', 'CrimeController@show');
 $router->post('/crimes', 'CrimeController@create');
 $router->patch('/crimes/{id}', 'CrimeController@update');

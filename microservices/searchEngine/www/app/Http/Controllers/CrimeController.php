@@ -8,7 +8,24 @@ class CrimeController extends Controller
 {
     private function search($filters)
     {
-        return ($filters);
+        $allowed_fields = array(
+            "compnos", "naturecode", "incident_type_description", "main_crimecode", "reptdistrict",
+            "reportingarea", "fromdate", "weapontype", "shooting", "domestic", "shift", "year", 
+            "month", "day_week", "ucrpart", "x", "y", "streetname", "xstreetname", "location"
+        );
+
+        $numeric_fields = array("compnos", "reportingarea", "year", "month");
+
+        foreach ($filters as $key => $value) {
+            if (!in_array($key, $allowed_fields))
+                abort(400, "Unauthorized filter " . $key);
+            if (in_array($key, $numeric_fields))
+                $filters[$key] = $value == 'None' ? $value : floatval($value);
+        }
+
+        $crimes = Crime::where($filters);
+
+        return ($crimes->paginate(25));
     }
 
     public function show(Request $request, $id = null)
@@ -16,7 +33,7 @@ class CrimeController extends Controller
         if (isset($id))
             return response()->json(['Crime' => Crime::findOrFail($id)]);
         else if (isset($request->filters))
-            return $this->search($request->filters);
+            return response()->json(['Crimes' => $this->search($request->filters)]);
         else
             return response()->json(['Crimes' => Crime::paginate(25)]);
     }
@@ -29,7 +46,7 @@ class CrimeController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'compnos'                   => 'required|integer|unique',
+            'compnos'                   => 'required|integer|unique:crimes,compnos',
             'naturecode'                => 'sometimes|string|max:100',
             'shooting'                  => 'sometimes|string|max:100',
             'reportingarea'             => 'sometimes|numeric',

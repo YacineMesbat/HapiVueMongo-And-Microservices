@@ -32,13 +32,9 @@ class Crime extends Eloquent
      * @var array
      */
     protected $fillable = [
-        'compnos', 'REPORTINGAREA', 'INCIDENT_TYPE_DESCRIPTION', 'REPTDISTRICT', 'FROMDATE',
-        'TODATE', 'STREETNAME', 'XSTREETNAME', 'WEAPONTYPE', 'BUILDINGTYPE', 'PLACEOFENTRY',
-        'PERPETRATORSNOS', 'SUSPECTTRANSPORTATION', 'VICTIMACTIVITY', 'UNUSUALACTIONS',
-        'WEATHER', 'NEIGHBORHOOD', 'LIGHTING', 'CLEARANCESTATUSDESC', 'MAIN_CRIMECODE',
-        'ROBBERY_TYPE', 'ROBBERY_ATTEMP', 'BURGLARY_TIME', 'DOMESTIC','WEAPON_TYPE',
-        'SHIFT', 'DAY_WEEK', 'UCRPART', 'X', 'Y', 'GREPORTING', 'GSECTOR', 'GBEAT',
-        'GDISTRICT', 'GDISTRICT_PRE2009', 'COMPUTEDCRIMECODE', 'COMPUTEDCRIMECODEDESC'
+        "compnos", "naturecode", "incident_type_description", "main_crimecode", "reptdistrict",
+        "reportingarea", "fromdate", "weapontype", "shooting", "domestic", "shift", "year", 
+        "month", "day_week", "ucrpart", "x", "y", "streetname", "xstreetname", "location"
     ];
 
     /**
