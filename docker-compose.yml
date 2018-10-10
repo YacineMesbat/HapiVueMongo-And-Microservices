@@ -79,5 +79,4 @@ services:
       - ./webApi:/usr/src/app
     links:
       - account.api
-      - data.exporter
       - search.engine
