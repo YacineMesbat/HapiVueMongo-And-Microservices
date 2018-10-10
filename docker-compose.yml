@@ -62,3 +62,21 @@ services:
     links:
       - mongodb:mongo
       - account.api
+  web.api:
+    image: node:latest
+    command: >
+      bash -c "cd /usr/src/app
+      && npm install -g nodemon
+      && npm install
+      && npm start"
+    ports:
+      - 8083:80
+    expose: 
+      - 80
+    tty: true
+    restart: on-failure
+    volumes:
+      - ./webApi:/usr/src/app
+    links:
+      - account.api
+      - data.exporter
