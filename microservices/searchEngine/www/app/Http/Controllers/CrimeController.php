@@ -23,9 +23,7 @@ class CrimeController extends Controller
                 $filters[$key] = $value == 'None' ? $value : floatval($value);
         }
 
-        $crimes = Crime::where($filters);
-
-        return ($crimes->paginate(25));
+        return (Crime::where($filters)->paginate(25));
     }
 
     public function show(Request $request, $id = null)
