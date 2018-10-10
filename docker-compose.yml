@@ -62,6 +62,26 @@ services:
     links:
       - mongodb:mongo
       - account.api
+  search.engine:
+    build:
+      context: .
+      dockerfile: ./microservices/searchEngine/Dockerfile
+    depends_on:
+      - mongodb
+    command: >
+      bash -c "cd /var/www/html
+      && composer install
+      && composer update
+      && apachectl -D FOREGROUND"
+    ports:
+      - 8083:80
+    tty: true
+    restart: on-failure
+    volumes:
+      - ./microservices/searchEngine/www:/var/www/html
+    links:
+      - mongodb:mongo
+      - account.api
   web.api:
     image: node:latest
     command: >
@@ -70,7 +90,7 @@ services:
       && npm install
       && npm start"
     ports:
-      - 8083:80
+      - 8084:80
     expose: 
       - 80
     tty: true
@@ -80,3 +100,4 @@ services:
     links:
       - account.api
       - data.exporter
+      - search.engine
