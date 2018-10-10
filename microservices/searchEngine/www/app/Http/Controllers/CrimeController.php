@@ -6,10 +6,17 @@ use App\Crime;
 
 class CrimeController extends Controller
 {
+    private function search($filters)
+    {
+        return ($filters);
+    }
+
     public function show(Request $request, $id = null)
     {
         if (isset($id))
             return response()->json(['Crime' => Crime::findOrFail($id)]);
+        else if (isset($request->filters))
+            return $this->search($request->filters);
         else
             return response()->json(['Crimes' => Crime::paginate(25)]);
     }
