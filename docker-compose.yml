@@ -42,26 +42,6 @@ services:
       - ./microservices/accountManager/www:/var/www/html
     links:
       - mysqldb:mysql
-  data.exporter:
-    build:
-      context: .
-      dockerfile: ./microservices/dataExporter/Dockerfile
-    depends_on:
-      - mongodb
-    command: >
-      bash -c "cd /var/www/html
-      && composer install
-      && composer update
-      && apachectl -D FOREGROUND"
-    ports:
-      - 8082:80
-    tty: true
-    restart: on-failure
-    volumes:
-      - ./microservices/dataExporter/www:/var/www/html
-    links:
-      - mongodb:mongo
-      - account.api
   search.engine:
     build:
       context: .
