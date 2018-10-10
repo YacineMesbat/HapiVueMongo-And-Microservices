@@ -10,9 +10,7 @@ class CrimeController extends Controller
     {
         if (isset($id))
             return response()->json(['Crime' => Crime::findOrFail($id)]);
-        else if (isset($request->$query)) {
-            
-        } else
+        else
             return response()->json(['Crimes' => Crime::paginate(25)]);
     }
 
