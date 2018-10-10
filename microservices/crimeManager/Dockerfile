@@ -6,7 +6,7 @@ RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN apt-get -y update && apt-get -y install apache2 php7.2 php7.2-xml php7.2-mysql php7.2-curl php7.2-mbstring php7.2-cli php7.2-zip php7.2-mongodb
 
 # Add Vhost
-ADD ./microservices/searchEngine/000-default.conf /etc/apache2/sites-available
+ADD ./microservices/crimeManager/000-default.conf /etc/apache2/sites-available
 RUN a2enmod rewrite && service apache2 restart
 
 # Install Composer (hash_file must be updated to the latest)

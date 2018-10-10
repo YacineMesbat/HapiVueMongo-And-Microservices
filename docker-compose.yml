@@ -42,10 +42,10 @@ services:
       - ./microservices/accountManager/www:/var/www/html
     links:
       - mysqldb:mysql
-  search.engine:
+  crime.api:
     build:
       context: .
-      dockerfile: ./microservices/searchEngine/Dockerfile
+      dockerfile: ./microservices/crimeManager/Dockerfile
     depends_on:
       - mongodb
     command: >
@@ -58,7 +58,7 @@ services:
     tty: true
     restart: on-failure
     volumes:
-      - ./microservices/searchEngine/www:/var/www/html
+      - ./microservices/crimeManager/www:/var/www/html
     links:
       - mongodb:mongo
       - account.api
@@ -79,4 +79,4 @@ services:
       - ./webApi:/usr/src/app
     links:
       - account.api
-      - search.engine
+      - crime.api
