@@ -31,6 +31,9 @@ class LoginController extends Controller
         $signature = hash_hmac('sha256', "{$base64UrlHeader}.{$base64UrlPayload}", $secret, true);
         $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
 
-        return response()->json(['token' => "{$base64UrlHeader}.{$base64UrlPayload}.{$base64UrlSignature}"], 200);
+        return response()->json([
+            'token' => "{$base64UrlHeader}.{$base64UrlPayload}.{$base64UrlSignature}",
+            'user' => $user->only(["role", 'first_name', 'last_name'])
+        ], 200);
     }
 }
