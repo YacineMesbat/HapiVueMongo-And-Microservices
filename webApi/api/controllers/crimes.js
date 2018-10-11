@@ -19,8 +19,8 @@ CrimeController.prototype = (function(){
 					}
 				}
 
-				Request('http://crime.api/crimes?page=' + page + '&' + filters, { headers: { Authorization: request.headers.authorization || ''}}, function (error, response, body) {
-					if (error) {v
+				Request('http://crime.api/crimes?page=' + page + '&' + filters, { headers: { Authorization: request.headers.authorization || ''}}, function(error, response, body) {
+					if (error) {
 						reject(h.response(error).code(500));
 					} else {
 						resolve(h.response(JSON.parse(body)).code(response.statusCode))
