@@ -22,8 +22,8 @@ class LoginController extends Controller
             return response()->json(['error' => "Invalid Credentials"], 401);
 
         $secret = env('JWT_SECRET_KEY');
-        $header = json_encode(['alg' => 'HS256', 'type' => 'JWT']);
-        $payload = json_encode(['sub' => $user->email, 'role' => $user->role, 'exp' => date("Y-m-d H-i-s")]);
+        $header = json_encode(['alg' => 'HS256', 'typ' => 'JWT']);
+        $payload = json_encode(['sub' => $user->email, 'role' => $user->role, 'exp' => time()]);
 
         $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
         $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));

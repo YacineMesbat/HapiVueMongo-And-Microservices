@@ -17,7 +17,9 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/crimes[/{id}]', 'CrimeController@show');
-$router->post('/crimes', 'CrimeController@create');
-$router->patch('/crimes/{id}', 'CrimeController@update');
-$router->delete('/crimes/{id}', 'CrimeController@delete');
+$router->group(['middleware' => ['jwt.auth']], function () use ($router) {
+    $router->get('/crimes[/{id}]', 'CrimeController@show');
+    $router->post('/crimes', 'CrimeController@create');
+    $router->patch('/crimes/{id}', 'CrimeController@update');
+    $router->delete('/crimes/{id}', 'CrimeController@delete');
+});
