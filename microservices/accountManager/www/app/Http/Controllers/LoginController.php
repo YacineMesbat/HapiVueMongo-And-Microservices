@@ -20,6 +20,13 @@ class LoginController extends Controller
 
         if (!$user)
             return response()->json(['error' => "Invalid Credentials"], 401);
+        else
+            $user->makeVisible('confirmed');
+
+        if (!$user->confirmed)
+            return response()->json(['error' => "User must be confirmed"], 401);
+        else
+            $user->makeHidden('confirmed');
 
         $secret = env('JWT_SECRET_KEY');
         $header = json_encode(['alg' => 'HS256', 'typ' => 'JWT']);

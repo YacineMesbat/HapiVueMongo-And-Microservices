@@ -35,7 +35,8 @@ class UserController extends Controller
             'last_name'     => $request->last_name,
             'password'      => hash('sha512', $request->password . '4956b4af9f6dcaef1eb4b1fcb8fba69e7a7acdc491ea5b1f2864e'),
             'role'          => $request->role,
-            'email'         => $request->email
+            'email'         => $request->email,
+            'confirmed'     => 0
         ])], 201);
     }
 
