@@ -1,0 +1,5 @@
+host: mysql
+port: 3306
+database: ticweb
+user: f460c882a18
+password: 89fb9a42628f26
