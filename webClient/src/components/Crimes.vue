@@ -89,9 +89,6 @@ export default {
         console.log(this.$store.state.crimes.crimes);
         /* eslint-disable no-console */
         console.log(res.data.Crimes.next_page_url);
-        this.$nextTick(function () {
-        console.log(this.$el.textContent) // => 'mis à jour'
-      })
         // this.crimes = res.data.Crimes.data;
         // this.pageSize: res.data.Crime.last_page;
       }).catch((error) => {

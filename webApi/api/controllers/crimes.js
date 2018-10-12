@@ -43,7 +43,7 @@ CrimeController.prototype = (function(){
     create: (request, h) => {
 
 			return new Promise((resolve, reject) => {
-				Request.post({url:'http://crime.api/crimes', form: request.payload}, { headers: { Authorization: request.headers.authorization || ''}}, function (error, response, body) {
+				Request.post({url:'http://crime.api/crimes', form: request.payload, headers: { Authorization: request.headers.authorization || ''}}, function (error, response, body) {
 					if (error) {
 						reject(h.response(error).code(500));
 					} else {
@@ -55,7 +55,7 @@ CrimeController.prototype = (function(){
     update: (request, h) => {
 
 			return new Promise((resolve, reject) => {
-			Request.patch({url:'http://crime.api/crimes/' + request.params.id, form: request.payload}, { headers: { Authorization: request.headers.authorization || ''}}, function (error, response, body) {
+			Request.patch({url:'http://crime.api/crimes/' + request.params.id, form: request.payload, headers: { Authorization: request.headers.authorization || ''}}, function (error, response, body) {
 				if (error) {
 					reject(h.response(error).code(500));
 				} else {
@@ -67,7 +67,7 @@ CrimeController.prototype = (function(){
     delete: (request, h) => {
 
 			return new Promise((resolve, reject) => {
-				Request.del({url:'http://crime.api/crimes/' + request.params.id, form: request.payload}, { headers: { Authorization: request.headers.authorization || ''}}, function (error, response, body) {
+				Request.del({url:'http://crime.api/crimes/' + request.params.id, headers: { Authorization: request.headers.authorization || ''}}, function (error, response, body) {
 					if (error) {
 						reject(h.response(error).code(500));
 					} else {
