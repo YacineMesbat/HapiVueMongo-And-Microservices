@@ -25,9 +25,11 @@ class JwtAuthentication
                 $header     = json_decode(str_replace(['-', '_', ''], ['+', '/', '='], base64_decode($header)));
                 $claims     = json_decode(str_replace(['-', '_', ''], ['+', '/', '='], base64_decode($claims)));
 
-                if ($claims->exp + 1800 > time())
+                if ($claims->exp + 1800 > time()) {
+                    $request->request->add(['claims' => $claims]);
+
                     return $next($request);
-                else
+                } else
                     return response()->json(['error' => "Expired Token", 'code' => 401], 401);
             } else
                 return response()->json(['error' => "Invalid Token", 'code' => 401], 401);

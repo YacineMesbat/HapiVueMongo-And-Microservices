@@ -25,12 +25,16 @@ class CrimeController extends Controller
 
         if (isset($filters['contain'])) {
             $contain = array();
-            $query = Crime::where($filters);
             $contained_data = $filters['contain'];
+            unset($filters['contain']);
 
-            foreach($fields as $key)
-                if ($key != 'contain')
-                    $query->orWhere($key, 'LIKE', "%". $filters['contain'] ."%");
+            $query = Crime::where($filters)->where(function ($query) use ($contained_data, $fields) {
+                $query->where('compnos', 'LIKE', "%". $contained_data ."%");
+
+                foreach($fields as $key)
+                    if ($key != 'contain' && $key != 'compnos')
+                        $query->orWhere($key, 'LIKE', "%". $contained_data ."%");
+            });
 
             return $query->paginate(25);
         }
@@ -48,13 +52,19 @@ class CrimeController extends Controller
             return response()->json(['Crimes' => Crime::paginate(25)]);
     }
 
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
-        Crime::findOrFail($id)->delete();
+        if ($request->claims->role === 'chef')
+            Crime::findOrFail($id)->delete();
+        else
+            return response()->json(['error' => "Access Forbidden", 'code' => 403], 403);
     }
 
     public function create(Request $request)
     {
+        if (!in_array($request->claims->role, ['chef', 'detective']))
+            return response()->json(['error' => "Access Forbidden", 'code' => 403], 403);
+
         $this->validate($request, [
             'compnos'                   => 'required|integer|unique:crimes,compnos',
             'naturecode'                => 'sometimes|string|max:100',
@@ -86,7 +96,10 @@ class CrimeController extends Controller
     }
 
     public function update(Request $request, $id)
-    {   
+    {
+        if (!in_array($request->claims->role, ['chef', 'detective']))
+            return response()->json(['error' => "Access Forbidden", 'code' => 403], 403);
+
         $this->validate($request, [
             'naturecode'                => 'sometimes|string|max:100',
             'shooting'                  => 'sometimes|string|max:100',
@@ -117,6 +130,6 @@ class CrimeController extends Controller
             "month", "day_week", "ucrpart", "x", "y", "streetname", "xstreetname", "location"
         ]));
 
-        return response()->json(['Crime' => $crime], 20);
+        return response()->json(['Crime' => $crime], 200);
     }
 }

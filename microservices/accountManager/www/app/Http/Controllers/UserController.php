@@ -15,13 +15,19 @@ class UserController extends Controller
             return response()->json(['Users' => User::paginate(25)]);
     }
 
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
-        User::findOrFail($id)->delete();
+        if ($request->claims->role != 'chef')
+            $user = User::findOrFail($id);
+        else
+            return response()->json(['error' => "Access Forbidden", 'code' => 403], 403);
     }
     
     public function create(Request $request)
     {
+        if ($request->claims->role != 'chef')
+            return response()->json(['error' => "Access Forbidden", 'code' => 403], 403);
+
         $this->validate($request, [
             'first_name'    => 'required|string|min:2',
             'last_name'     => 'required|string|min:2',
@@ -42,6 +48,9 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
+        if ($request->claims->role != 'chef')
+            return response()->json(['error' => "Access Forbidden", 'code' => 403], 403);
+
         $this->validate($request, [
             'first_name'    => 'sometimes|string|min:2',
             'last_name'     => 'sometimes|string|min:2',
@@ -52,7 +61,7 @@ class UserController extends Controller
         ]);
 
         if (isset($request->password))
-            $request->password = hash('sha512', $request->password . '4956b4af9f6dcaef1eb4b1fcb8fba69e7a7acdc491ea5b1f2864e');
+            $request->request->set('password', hash('sha512', $request->password . '4956b4af9f6dcaef1eb4b1fcb8fba69e7a7acdc491ea5b1f2864e'));
 
         $user =  User::findOrFail($id);
         $user->update($request->only([
