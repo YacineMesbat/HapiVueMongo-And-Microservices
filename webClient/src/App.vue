@@ -1,5 +1,14 @@
 <template>
   <div id="app">
+    <li class="nav-item">
+      <router-link class="nav-link" to="/home">Home</router-link>
+    </li>
+    <li class="nav-item">
+      <router-link class="nav-link" to="/crimes">Crimes</router-link>
+    </li>
+    <li class="nav-item">
+      <router-link class="nav-link" to="/contact">contact</router-link>
+    </li>
     <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>

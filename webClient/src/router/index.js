@@ -4,6 +4,7 @@ import Home from '@/components/Home';
 import Login from '@/components/Login';
 import Crimes from '@/components/Crimes';
 import Users from '@/components/Users';
+import RegisterUser from '@/components/RegisterUser';
 
 import store from '../store';
 
@@ -28,6 +29,16 @@ const router = new Router({
       component: Crimes,
     },
     {
+      path: '/crimes/:Id/edit',
+      name: 'Crimes',
+      component: Crimes,
+    },
+    {
+      path: '/users/new',
+      name: 'Create New User',
+      component: RegisterUser,
+    },
+    {
       path: '/users',
       name: 'Users',
       component: Users,
@@ -40,6 +51,8 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   // redirect to login page if not logged in and trying to access a restricted page
   const publicPages = ['/login'];
+  const chefPages = ['/users', '/users/new'];
+  const chefRoleRequired = chefPages.includes(to.path);
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = store.state.auth.status.loggedIn;
 
@@ -48,6 +61,10 @@ router.beforeEach((to, from, next) => {
 
   if (authRequired && !loggedIn) {
     return next('/login');
+  }
+
+  if ((chefRoleRequired && !loggedIn) || (chefRoleRequired && store.state.auth.user.role !== 'chef')) {
+    return next('/');
   }
 
   if (to.path === '/login' && loggedIn) {

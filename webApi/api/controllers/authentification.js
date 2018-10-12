@@ -13,7 +13,7 @@ AuthController.prototype = (function(){
 					if (error) {
 						reject(h.response(error).code(500));
 					} else {
-						resolve(h.response(body).code(response.statusCode))
+						resolve(h.response(JSON.parse(body)).code(response.statusCode))
 					}
 				})
 			});
