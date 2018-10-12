@@ -1,9 +1,4 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+const counter = {
   state: {
     count: 0,
   },
@@ -16,4 +11,6 @@ export default new Vuex.Store({
   },
   actions: {
   },
-});
+};
+
+export default counter;

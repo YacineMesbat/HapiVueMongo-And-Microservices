@@ -6,6 +6,10 @@ module.exports = [
 		path: '/api/login',
 		config : {
 			handler: authController.login,
+			cors: {
+				origin: ['*'],
+				additionalHeaders: ['cache-control', 'x-requested-with']
+			}
 		}
   },
 ];
