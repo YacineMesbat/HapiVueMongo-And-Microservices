@@ -95,7 +95,7 @@ export default {
         .then((res) => {
           /* eslint-disable no-console */
           console.log(res);
-          this.$store.commit('loginSuccess', {token: res.data.token, user: res.data.user});
+          this.$store.commit('loginSuccess', { token: res.data.token, user: res.data.user });
           location.reload();
         })
         .catch((err) => {

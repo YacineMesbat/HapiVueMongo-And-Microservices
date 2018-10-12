@@ -9,6 +9,10 @@ module.exports = [
 		path: '/api/users',
 		config : {
 			handler: userController.find,
+			cors: {
+				origin: ['*'],
+				additionalHeaders: ['cache-control', 'x-requested-with']
+			}
 			// validate: userController.find
 		}
   },
@@ -17,6 +21,10 @@ module.exports = [
 		path: '/api/users/{id}',
 		config : {
 			handler: userController.findById,
+			cors: {
+				origin: ['*'],
+				additionalHeaders: ['cache-control', 'x-requested-with']
+			}
 		}
   },
   {
@@ -24,6 +32,10 @@ module.exports = [
 		path: '/api/users',
 		config : {
 			handler: userController.create,
+			cors: {
+				origin: ['*'],
+				additionalHeaders: ['cache-control', 'x-requested-with']
+			}
 		}
   },
   {
@@ -31,6 +43,10 @@ module.exports = [
 		path: '/api/users/{id}',
 		config : {
 			handler: userController.update,
+			cors: {
+				origin: ['*'],
+				additionalHeaders: ['cache-control', 'x-requested-with']
+			}
 		}
   },
   {
@@ -38,6 +54,10 @@ module.exports = [
 		path: '/api/users/{id}',
 		config : {
 			handler: userController.delete,
+			cors: {
+				origin: ['*'],
+				additionalHeaders: ['cache-control', 'x-requested-with']
+			}
 		}
   },
 ];
