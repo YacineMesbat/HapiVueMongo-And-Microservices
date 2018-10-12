@@ -6,6 +6,10 @@ module.exports = [
 		path: '/api/crimes',
 		config : {
 			handler: crimeController.find,
+			cors: {
+				origin: ['*'],
+				additionalHeaders: ['cache-control', 'x-requested-with']
+			}
 			// validate: crimeValidate.find
 		}
   },
@@ -14,6 +18,10 @@ module.exports = [
 		path: '/api/crimes/{id}',
 		config : {
 			handler: crimeController.findById,
+			cors: {
+				origin: ['*'],
+				additionalHeaders: ['cache-control', 'x-requested-with']
+			}
 		}
   },
   {
@@ -21,6 +29,10 @@ module.exports = [
 		path: '/api/crimes',
 		config : {
 			handler: crimeController.create,
+			cors: {
+				origin: ['*'],
+				additionalHeaders: ['cache-control', 'x-requested-with']
+			}
 		}
   },
   {
@@ -28,6 +40,10 @@ module.exports = [
 		path: '/api/crimes/{id}',
 		config : {
 			handler: crimeController.update,
+			cors: {
+				origin: ['*'],
+				additionalHeaders: ['cache-control', 'x-requested-with']
+			}
 		}
   },
   {
@@ -35,6 +51,10 @@ module.exports = [
 		path: '/api/crimes/{id}',
 		config : {
 			handler: crimeController.delete,
+			cors: {
+				origin: ['*'],
+				additionalHeaders: ['cache-control', 'x-requested-with']
+			}
 		}
   },
 ];
