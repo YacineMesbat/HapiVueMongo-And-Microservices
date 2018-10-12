@@ -1,6 +1,11 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <input
+      type="button"
+      value="Submit"
+      @click="logout"
+    >
     <h2>Essential Links</h2>
     <ul>
       <li>
@@ -84,15 +89,21 @@
 </template>
 
 <script>
-import count from '../store/count';
+// import counter from '../store/counter';
 
 export default {
   name: 'HelloWorld',
-  store: count,
+  // store: counter,
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
     };
+  },
+  methods: {
+    logout() {
+      this.$store.commit('logout');
+      location.reload();
+    },
   },
 };
 </script>

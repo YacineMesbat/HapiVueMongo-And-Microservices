@@ -9,11 +9,11 @@ AuthController.prototype = (function(){
     login: (request, h) => {
 
 			return new Promise((resolve, reject) => {
-				Request.post({url:'http://account.api/login', form: request.payload}, function(error, response, body){
+				Request.post({url:'http://account.api/login', form: { email: request.payload.email || '', password: request.payload.password || '' }}, function(error, response, body){
 					if (error) {
 						reject(h.response(error).code(500));
 					} else {
-						resolve(h.response(JSON.parse(body)).code(response.statusCode))
+						resolve(h.response(body).code(response.statusCode))
 					}
 				})
 			});
