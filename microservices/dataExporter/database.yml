@@ -1,5 +1,12 @@
+adapter: mysql2
+encoding: utf8
+database: ticweb
+username: f460c882a18
+password: 89fb9a42628f26
 host: mysql
 port: 3306
-database: ticweb
-user: f460c882a18
-password: 89fb9a42628f26
+flags:
+  - -COMPRESS
+  - FOUND_ROWS
+  - MULTI_STATEMENTS
+secure_auth: false
